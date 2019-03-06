@@ -9,6 +9,28 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <style type="text/css">
+      table {
+        margin: 8px;
+      }
+
+      th {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        background: #666;
+        color: #fff;
+        padding: 2px 6px;
+        border-collapse: separate;
+        border: 1px solid #000;
+      }
+
+      td {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        border: 1px solid #DDD;
+      }
+    </style>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -42,6 +64,44 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="container">
+<?php
+require_once 'connection.php'; // подключаем скрипт
+
+$link = mysqli_connect($host, $user, $password, $database)
+    or die("Ошибка " . mysqli_error($link));
+
+$query ="SELECT * FROM tovars";
+
+$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+if($result)
+{
+    $rows = mysqli_num_rows($result); // количество полученных строк
+
+    echo "<table>
+      <tr>
+        <th>Id</th>
+        <th>Модель</th>
+        <th>Производитель</th>
+        <th>Характеристики</th>
+        </tr>";
+    for ($i = 0 ; $i < $rows ; ++$i)
+    {
+        $row = mysqli_fetch_row($result);
+        echo "<tr>";
+            for ($j = 0 ; $j < 4 ; ++$j) echo "<td>$row[$j]</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+
+    // очищаем результат
+    mysqli_free_result($result);
+}
+
+mysqli_close($link);
+?>
 </div>
 
 <div id="f">
