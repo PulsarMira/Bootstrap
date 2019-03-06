@@ -39,10 +39,10 @@
   <?php include ("shablon/header.php");?>
 
 <!-- ВЫГРУЗКА ДАННЫХ ИЗ БД -->
-<div id="pr">
 <div class="container">
   <div class="row centered">
-  <h4>Наши товары</h4>
+  <h1>Наши товары</h1>
+  <h4>Процессоры</h4>
   <br>
 <?php
 require_once 'operations/connection.php'; // подключаем скрипт
@@ -78,6 +78,20 @@ if($result)
     // очищаем результат
     mysqli_free_result($result);
 }
+mysqli_close($link);
+?>
+</div>
+</div>
+
+<div class="container">
+  <div class="row centered">
+  <h4>Видеокарты</h4>
+  <br>
+<?php
+require_once 'operations/connection.php'; // подключаем скрипт
+
+$link = mysqli_connect($host, $user, $password, $database)
+    or die("Ошибка " . mysqli_error($link));
 
 $query ="SELECT * FROM tovars WHERE category = 'videocard'";
 
@@ -107,6 +121,20 @@ if($result)
     // очищаем результат
     mysqli_free_result($result);
 }
+mysqli_close($link);
+?>
+</div>
+</div>
+
+<div class="container">
+  <div class="row centered">
+  <h4>Ноутбуки</h4>
+  <br>
+<?php
+require_once 'operations/connection.php'; // подключаем скрипт
+
+$link = mysqli_connect($host, $user, $password, $database)
+    or die("Ошибка " . mysqli_error($link));
 
 $query ="SELECT * FROM tovars WHERE category = 'notebook'";
 
@@ -136,10 +164,8 @@ if($result)
     // очищаем результат
     mysqli_free_result($result);
 }
-
 mysqli_close($link);
 ?>
-</div>
 </div>
 </div>
 
