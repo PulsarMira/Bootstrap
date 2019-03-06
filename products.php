@@ -50,7 +50,6 @@
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="price.html">Услуги</a></li>
                 <li class="active"><a href="products.html">Товары</a></li>
-                <li><a href="news.html">Новости</a></li>
                 <li><a href="svyaz.html">Обратная связь</a></li>
                 <li><a href="vhod.html">Вход и Регистрация</a></li>
             </ul>
@@ -68,7 +67,12 @@
     </div>
 </div>
 
+<!-- ВЫГРУЗКА ДАННЫХ ИЗ БД -->
+<div id="pr">
 <div class="container">
+  <div class="row centered">
+  <h4>Наши товары</h4>
+  <br>
 <?php
 require_once 'connection.php'; // подключаем скрипт
 
@@ -106,6 +110,8 @@ if($result)
 
 mysqli_close($link);
 ?>
+</div>
+</div>
 </div>
 
 <div id="f">

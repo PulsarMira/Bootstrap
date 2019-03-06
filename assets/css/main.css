@@ -203,3 +203,14 @@ hr {
 #r2 {
     background: #e0e0e0;
 }
+
+#pr {
+    background: #e0e0e0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+#pr h4 {
+    font-size: 40px;
+}
