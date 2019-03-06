@@ -17,18 +17,20 @@
 
       th {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 30px;
+        font-size: 25px;
         background: #666;
         color: #fff;
         padding: 2px 6px;
         border-collapse: separate;
         border: 1px solid #000;
+        text-align: center;
       }
 
       td {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 30px;
+        font-size: 25px;
         border: 1px solid #DDD;
+        text-align: center;
       }
     </style>
 </head>
@@ -83,15 +85,17 @@ if($result)
     echo "<table>
       <tr>
         <th>Id</th>
+        <th>Категория</th>
         <th>Модель</th>
         <th>Производитель</th>
         <th>Характеристики</th>
+        <th>Цена, руб.</th>
         </tr>";
     for ($i = 0 ; $i < $rows ; ++$i)
     {
         $row = mysqli_fetch_row($result);
         echo "<tr>";
-            for ($j = 0 ; $j < 4 ; ++$j) echo "<td>$row[$j]</td>";
+            for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
         echo "</tr>";
     }
     echo "</table>";
