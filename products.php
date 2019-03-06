@@ -35,37 +35,8 @@
     </style>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">C<i class="fa fa-circle"></i>MPTECH</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="price.html">Услуги</a></li>
-                <li class="active"><a href="products.html">Товары</a></li>
-                <li><a href="svyaz.html">Обратная связь</a></li>
-                <li><a href="vhod.html">Вход и Регистрация</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div id="headerwrap">
-    <div class="container">
-        <div class="row centered">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h1>COMPTECH is awesome!</h1>
-                <h2>Техника на COMPTECH лучшая в мире</h2>
-            </div>
-        </div>
-    </div>
-</div>
+
+  <?php include ("shablon/header.php");?>
 
 <!-- ВЫГРУЗКА ДАННЫХ ИЗ БД -->
 <div id="pr">
@@ -114,16 +85,7 @@ mysqli_close($link);
 </div>
 </div>
 
-<div id="f">
-    <div class="container">
-        <div class="row centered">
-            <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-            <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
-            <a href="https://vk.com"><i class="fa fa-vk"></i></a>
-            <a href="https://youtube.com"><i class="fa fa-youtube"></i></a>
-        </div>
-    </div>
-</div>
+  <?php include ("shablon/footer.php");?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
