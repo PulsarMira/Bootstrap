@@ -11,13 +11,14 @@ $link = mysqli_connect($host, $user, $password, $database)
         or die("Ошибка " . mysqli_error($link));
 
 // если запрос POST
-if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['id'])){
+if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['characteristics']) && isset($_POST['id'])){
 
     $id = htmlentities(mysqli_real_escape_string($link, $_POST['id']));
     $name = htmlentities(mysqli_real_escape_string($link, $_POST['name']));
     $company = htmlentities(mysqli_real_escape_string($link, $_POST['company']));
+    $characteristics = htmlentities(mysqli_real_escape_string($link, $_POST['characteristics']));
 
-    $query ="UPDATE tovars SET name='$name', company='$company' WHERE id='$id'";
+    $query ="UPDATE tovars SET name='$name', company='$company', characteristics='$characteristics' WHERE id='$id'";
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
     if($result)
@@ -39,6 +40,7 @@ if(isset($_GET['id']))
         $row = mysqli_fetch_row($result); // получаем первую строку
         $name = $row[1];
         $company = $row[2];
+        $characteristics = $row[3];
 
         echo "<h2>Изменить модель</h2>
             <form method='POST'>
@@ -47,6 +49,8 @@ if(isset($_GET['id']))
             <input type='text' name='name' value='$name' /></p>
             <p>Производитель: <br>
             <input type='text' name='company' value='$company' /></p>
+            <p>Характеристики: <br>
+            <input type='text' name='characteristics' value='$characteristics' /></p>
             <input type='submit' value='Сохранить'>
             </form>";
 
