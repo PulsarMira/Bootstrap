@@ -1,3 +1,4 @@
+<!-- ФАЙЛ НЕ ИСПОЛЬЗУЕТСЯ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +18,12 @@ if($result)
 {
     $rows = mysqli_num_rows($result); // количество полученных строк
 
-    echo "<table><tr><th>Id</th><th>Модель</th><th>Производитель</th><th>Характеристики</th></tr>";
+    echo "<table><tr><th>Id</th><th>Категория</th><th>Модель</th><th>Производитель</th><th>Характеристики</th><th>Цена</th></tr>";
     for ($i = 0 ; $i < $rows ; ++$i)
     {
         $row = mysqli_fetch_row($result);
         echo "<tr>";
-            for ($j = 0 ; $j < 4 ; ++$j) echo "<td>$row[$j]</td>";
+            for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
         echo "</tr>";
     }
     echo "</table>";
