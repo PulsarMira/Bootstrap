@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-require_once 'operations/connection.php'; // подключаем скрипт
+require_once 'connection.php'; // подключаем скрипт
 // подключаемся к серверу
 $link = mysqli_connect($host, $user, $password, $database)
         or die("Ошибка " . mysqli_error($link));
@@ -21,7 +21,7 @@ if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['characteri
     $characteristics = htmlentities(mysqli_real_escape_string($link, $_POST['characteristics']));
     $price = htmlentities(mysqli_real_escape_string($link, $_POST['price']));
 
-    $query ="UPDATE tovars SET category='$category', name='$name', company='$company', characteristics='$price', name='$price' WHERE id='$id'";
+    $query ="UPDATE tovars SET category='$category', name='$name', company='$company', characteristics='$characteristics', name='$price' WHERE id='$id'";
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
     if($result)
@@ -41,7 +41,7 @@ if(isset($_GET['id']))
     if($result && mysqli_num_rows($result)>0)
     {
         $row = mysqli_fetch_row($result); // получаем первую строку
-        $categoty = $row[1];
+        $category = $row[1];
         $name = $row[2];
         $company = $row[3];
         $characteristics = $row[4];
