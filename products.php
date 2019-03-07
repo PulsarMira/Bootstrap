@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <style type="text/css">
+<!--    <style type="text/css">
       table {
         margin-bottom: 70px;
       }
@@ -32,7 +32,40 @@
         border: 1px solid #DDD;
         text-align: center;
       }
-    </style>
+    </style> -->
+
+<style type="text/css">
+  table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border-top: 7px solid #9baff1;
+    border-bottom: 7px solid #9baff1;
+    margin-bottom: 70px;
+  }
+  th {
+    font-size: 13px;
+    font-weight: normal;
+    background: #e8edff;
+    border-right: 1px solid #9baff1;
+    border-left: 1px solid #9baff1;
+    color: #039;
+    padding: 8px;
+    text-align: center;
+  }
+  td {
+    background: #e8edff;
+    border-right: 1px solid #aabcfe;
+    border-left: 1px solid #aabcfe;
+    color: #669;
+    padding: 8px;
+    text-align: center;
+  }
+</style>
+
 </head>
 <body>
 
