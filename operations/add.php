@@ -23,7 +23,7 @@ if(isset($_POST['name']) && isset($_POST['company']) && isset($_POST['characteri
 
 
     // создание строки запроса
-    $query ="INSERT INTO tovars VALUES(NULL, $category, '$name','$company', '$characteristics', $price)";
+    $query ="INSERT INTO tovars VALUES(NULL, '$category', '$name','$company', '$characteristics', '$price')";
 
     // выполняем запрос
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
