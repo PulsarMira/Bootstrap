@@ -37,7 +37,7 @@
 <style type="text/css">
   table {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 14px;
+    font-size: 18px;
     max-width: 100%;
     width: 100%;
     text-align: center;
