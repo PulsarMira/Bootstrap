@@ -10,30 +10,6 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
-<!--    <style type="text/css">
-      table {
-        margin-bottom: 70px;
-      }
-
-      th {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 25px;
-        background: #666;
-        color: #fff;
-        padding: 2px 6px;
-        border-collapse: separate;
-        border: 1px solid #000;
-        text-align: center;
-      }
-
-      td {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 25px;
-        border: 1px solid #DDD;
-        text-align: center;
-      }
-    </style> -->
-
 <style type="text/css">
   table {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -71,136 +47,154 @@
 
   <?php include ("shablon/header.php");?>
 
-<!-- ВЫГРУЗКА ДАННЫХ ИЗ БД -->
-<div class="container">
-  <div class="row centered">
-  <h1>Наши товары</h1>
-  <h4>Процессоры</h4>
-  <br>
-<?php
-require_once 'operations/connection.php'; // подключаем скрипт
 
-$link = mysqli_connect($host, $user, $password, $database)
-    or die("Ошибка " . mysqli_error($link));
+  <div class="container">
+    <h2>Каталог</h2>
+    <p>В данном разделе вы можете просмотреть все товары доступные на данный момент на нашем сайте.</p>
 
-$query ="SELECT * FROM tovars WHERE category = 'proc'";
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Процессоры</a></li>
+      <li><a data-toggle="tab" href="#menu1">Видеокарты</a></li>
+      <li><a data-toggle="tab" href="#menu2">Ноутбуки</a></li>
+    </ul>
 
-$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-if($result)
-{
-    $rows = mysqli_num_rows($result); // количество полученных строк
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>ПРОЦЕССОРЫ</h3>
+        <p><div class="container">
+          <div class="row centered">
+        <?php
+        require_once 'operations/connection.php'; // подключаем скрипт
 
-    echo "<table>
-      <tr>
-        <th>Id</th>
-        <th>Категория</th>
-        <th>Модель</th>
-        <th>Производитель</th>
-        <th>Характеристики</th>
-        <th>Цена, руб.</th>
-        </tr>";
-    for ($i = 0 ; $i < $rows ; ++$i)
-    {
-        $row = mysqli_fetch_row($result);
-        echo "<tr>";
-            for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
+        $link = mysqli_connect($host, $user, $password, $database)
+            or die("Ошибка " . mysqli_error($link));
 
-    // очищаем результат
-    mysqli_free_result($result);
-}
-mysqli_close($link);
-?>
-</div>
-</div>
+        $query ="SELECT * FROM tovars WHERE category = 'proc'";
 
-<div class="container">
-  <div class="row centered">
-  <h4>Видеокарты</h4>
-  <br>
-<?php
-require_once 'operations/connection.php'; // подключаем скрипт
+        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+        if($result)
+        {
+            $rows = mysqli_num_rows($result); // количество полученных строк
 
-$link = mysqli_connect($host, $user, $password, $database)
-    or die("Ошибка " . mysqli_error($link));
+            echo "<table>
+              <tr>
+                <th>Id</th>
+                <th>Категория</th>
+                <th>Модель</th>
+                <th>Производитель</th>
+                <th>Характеристики</th>
+                <th>Цена, руб.</th>
+                </tr>";
+            for ($i = 0 ; $i < $rows ; ++$i)
+            {
+                $row = mysqli_fetch_row($result);
+                echo "<tr>";
+                    for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
 
-$query ="SELECT * FROM tovars WHERE category = 'videocard'";
+            // очищаем результат
+            mysqli_free_result($result);
+        }
+        mysqli_close($link);
+        ?>
+        </div>
+        </div>
+      </p>
+      </div>
 
-$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-if($result)
-{
-    $rows = mysqli_num_rows($result); // количество полученных строк
+      <div id="menu1" class="tab-pane fade">
+        <h3>ВИДЕОКАРТЫ</h3>
+        <p><div class="container">
+          <div class="row centered">
+        <?php
+        require_once 'operations/connection.php'; // подключаем скрипт
 
-    echo "<table>
-      <tr>
-        <th>Id</th>
-        <th>Категория</th>
-        <th>Модель</th>
-        <th>Производитель</th>
-        <th>Характеристики</th>
-        <th>Цена, руб.</th>
-        </tr>";
-    for ($i = 0 ; $i < $rows ; ++$i)
-    {
-        $row = mysqli_fetch_row($result);
-        echo "<tr>";
-            for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
+        $link = mysqli_connect($host, $user, $password, $database)
+            or die("Ошибка " . mysqli_error($link));
 
-    // очищаем результат
-    mysqli_free_result($result);
-}
-mysqli_close($link);
-?>
-</div>
-</div>
+        $query ="SELECT * FROM tovars WHERE category = 'videocard'";
 
-<div class="container">
-  <div class="row centered">
-  <h4>Ноутбуки</h4>
-  <br>
-<?php
-require_once 'operations/connection.php'; // подключаем скрипт
+        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+        if($result)
+        {
+            $rows = mysqli_num_rows($result); // количество полученных строк
 
-$link = mysqli_connect($host, $user, $password, $database)
-    or die("Ошибка " . mysqli_error($link));
+            echo "<table>
+              <tr>
+                <th>Id</th>
+                <th>Категория</th>
+                <th>Модель</th>
+                <th>Производитель</th>
+                <th>Характеристики</th>
+                <th>Цена, руб.</th>
+                </tr>";
+            for ($i = 0 ; $i < $rows ; ++$i)
+            {
+                $row = mysqli_fetch_row($result);
+                echo "<tr>";
+                    for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
 
-$query ="SELECT * FROM tovars WHERE category = 'notebook'";
+            // очищаем результат
+            mysqli_free_result($result);
+        }
+        mysqli_close($link);
+        ?>
+        </div>
+        </div></p>
+      </div>
 
-$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-if($result)
-{
-    $rows = mysqli_num_rows($result); // количество полученных строк
+      <div id="menu2" class="tab-pane fade">
+        <h3>НОУТБУКИ</h3>
+        <p><div class="container">
+          <div class="row centered">
+        <?php
+        require_once 'operations/connection.php'; // подключаем скрипт
 
-    echo "<table>
-      <tr>
-        <th>Id</th>
-        <th>Категория</th>
-        <th>Модель</th>
-        <th>Производитель</th>
-        <th>Характеристики</th>
-        <th>Цена, руб.</th>
-        </tr>";
-    for ($i = 0 ; $i < $rows ; ++$i)
-    {
-        $row = mysqli_fetch_row($result);
-        echo "<tr>";
-            for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
+        $link = mysqli_connect($host, $user, $password, $database)
+            or die("Ошибка " . mysqli_error($link));
 
-    // очищаем результат
-    mysqli_free_result($result);
-}
-mysqli_close($link);
-?>
-</div>
-</div>
+        $query ="SELECT * FROM tovars WHERE category = 'notebook'";
+
+        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+        if($result)
+        {
+            $rows = mysqli_num_rows($result); // количество полученных строк
+
+            echo "<table>
+              <tr>
+                <th>Id</th>
+                <th>Категория</th>
+                <th>Модель</th>
+                <th>Производитель</th>
+                <th>Характеристики</th>
+                <th>Цена, руб.</th>
+                </tr>";
+            for ($i = 0 ; $i < $rows ; ++$i)
+            {
+                $row = mysqli_fetch_row($result);
+                echo "<tr>";
+                    for ($j = 0 ; $j < 6 ; ++$j) echo "<td>$row[$j]</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+
+            // очищаем результат
+            mysqli_free_result($result);
+        }
+        mysqli_close($link);
+        ?>
+        </div>
+        </div>
+      </p>
+      </div>
+
+    </div>
+  </div>
 
   <?php include ("shablon/footer.php");?>
 

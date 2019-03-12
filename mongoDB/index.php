@@ -1,9 +1,15 @@
 <?php
+// данные конфигурации
+$dbhost = 'localhost';
+$dbname = 'mybase';
 
-$con = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-$list= $con-> mybase-> listCollections();
-foreach ($list as $collection) {
-    echo "<p>" . $collection . "</p>";
-}
+// подключение к базе
+$m = new Mongo("mongodb://$dbhost");
+$db = $m->$dbname;
 
+// выбираем коллекцию
+$collection = $db->tovar;
+
+// вытаскиваем данные
+$cursor = $collection->find();
 ?>
