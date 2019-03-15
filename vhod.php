@@ -14,7 +14,7 @@
 
   <?php include ("shablon/header.php");?>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -73,7 +73,7 @@
    border: none;
    background: transparent;
    opacity: 1;
-   border-bottom: 2px solid #eec111;
+   border-bottom: 2px solid #1190ee;
    color: #fff;
   }
   .tab .tab-content{
@@ -113,10 +113,10 @@
   .form-horizontal .main-checkbox{
    width: 20px;
    height: 20px;
-   background: #eec111;
+   background: #1190ee;
    float: left;
    margin: 5px 0 0 20px;
-   border: 1px solid #eec111;
+   border: 1px solid #1190ee;
    position: relative;
   }
   .form-horizontal .main-checkbox label{
@@ -156,7 +156,7 @@
   }
   .form-horizontal .btn{
    width: 100%;
-   background: #eec111;
+   background: #1190ee;
    padding: 10px 20px;
    border: none;
    font-size: 14px;
@@ -167,7 +167,7 @@
    margin: 20px 0 30px 0;
   }
   .form-horizontal .btn:focus{
-   background: #eec111;
+   background: #1190ee;
    color: #fff;
    outline: none;
    box-shadow: none;
@@ -185,7 +185,7 @@
    text-transform: capitalize;
    transition: all 0.3s ease 0s;
   }
-  .form-horizontal .forgot-pass .btn:hover{ color: #eec111; }
+  .form-horizontal .forgot-pass .btn:hover{ color: #1190ee; }
   @media only screen and (max-width: 479px){
    .tab{ padding: 40px 20px; }
   }
