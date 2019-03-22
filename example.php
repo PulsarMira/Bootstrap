@@ -1,37 +1,40 @@
-<?php
-# Массив с данными
-$articles = [
-    [
-        'title' => 'Главная страница',
-        'content' => 'Текст статьи про наш сайт'
-    ],
-    [
-        'title' => 'Создание динамических страниц',
-        'content' => 'Текст статьи про динамические страницы.'
-    ],
-    [
-        'title' =>  'Как поймать котёнка',
-        'content' => 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.'
-    ]
-];
+<!doctype html>
+<html lang="ru">
 
-# Если id передан - записываем в $article статью или null, если статьи с таким id нет
-if(isset($_GET['id']))
-    $current_article = $articles[$_GET['id']] ?? null;
-# Если id не передан - значит это главная страница, можем показать страницу с id = 0
-else
-    $current_article = $articles[0];
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CompTech</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
 
-    <!-- Выводим меню -->
-<?php foreach($articles as $id => $article): ?>
-    <a href="?id=<?= $id ?>"><?= $article['title'] ?></a>
-<?php endforeach; ?>
+<body>
 
-    <!-- Показываем страницу, либо ошибку -->
+<?php include ("shablon/head.php");?>
+
+<!-- Показываем страницу, либо ошибку -->
 <?php if($current_article): ?>
-    <h1><?= $current_article['title'] ?></h1>
-    <div><?= $current_article['content'] ?></div>
+    <div class="container"
+         <div class="row centered" id="nvb"
+            <h1><?= $current_article['title'] ?></h1>
+            <div>
+                <?= $current_article['content'] ?>
+            </div>
+        </div>
+    </div>
 <?php else: ?>
     <h1>Ошибка 404: страница не найдена</h1>
 <?php endif; ?>
+
+<?php include ("shablon/footer.php");?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+

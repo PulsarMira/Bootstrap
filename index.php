@@ -45,7 +45,7 @@
                 <br>
                 <div class="col-lg-4">
                     <div class="tilt">
-                        <a href="#"><img src="assets/img/p01.png" alt=""></a>
+                        <a href="example.php"><img src="assets/img/p01.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4">
