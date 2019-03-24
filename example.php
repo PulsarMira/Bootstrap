@@ -13,13 +13,33 @@
 
 <body>
 
-<?php include ("shablon/head.php");?>
+<?php include ("shablon/header.php");?>
+
+<?php
+# Если id передан - записываем в $article статью или null, если статьи с таким id нет
+if(isset($_GET['id']))
+    $current_article = $articles[$_GET['id']] ?? null;
+# Если id не передан - значит это главная страница, можем показать страницу с id = 0
+else
+    $current_article = $articles[0];
+?>
+
+<div class="container">
+    <div class="row centered">
+        <!-- Выводим меню -->
+        <?php foreach($articles as $id => $article): ?>
+            <a href="?id=<?= $id ?>"><?= $article['title'] ?></a>
+        <?php endforeach; ?>
+    </div>
+</div>
 
 <!-- Показываем страницу, либо ошибку -->
 <?php if($current_article): ?>
     <div class="container"
-         <div class="row centered" id="nvb"
-            <h1><?= $current_article['title'] ?></h1>
+         <div class="row centered"
+            <h1>
+                <?= $current_article['title'] ?>
+            </h1>
             <div>
                 <?= $current_article['content'] ?>
             </div>

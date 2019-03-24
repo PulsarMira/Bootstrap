@@ -11,6 +11,7 @@
             </div>
 
             <?php include ("shablon/menu.php");?>
+            <?php include ("shablon/navbar.php");?>
 
         </div>
     </div>
